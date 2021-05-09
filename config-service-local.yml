@@ -1,11 +1,12 @@
 spring:
   application:
-    name: add-auth-gateway-test
+    name: config-service-local
   cloud:
     loadbalancer:
       ribbon:
         enabled: false
     gateway:
+      ip: 192.168.0.13
       httpclient:
         connect-timeout: 3000
         response-timeout: 10s
@@ -22,6 +23,3 @@ spring:
             - Path=/auth-service/api/**
           filters:
             - RewritePath=/auth-service/(?<segment>.*), /$\{segment}
-
-gateway:
-  ip: 172.21.192.1
