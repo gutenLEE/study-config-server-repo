@@ -1,2 +1,2 @@
 # study-config-server-repo
-application
+auth
