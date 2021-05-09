@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: add-auth-gateway-test
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      httpclient:
+        connect-timeout: 3000
+        response-timeout: 10s
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: Spring Cloud Gateway Global Filter
+            preLogger: true
+            postLogger: true
+      routes: # routes 설정
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth-service/api/**
+          filters:
+            - RewritePath=/auth-service/(?<segment>.*), /$\{segment}
+
+gateway:
+  ip: 172.21.192.1
