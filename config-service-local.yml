@@ -31,6 +31,11 @@ spring:
           filters:
             - RewritePath=/auth-service/(?<segment>.*), /$\{segment}
             - AuthPreFilter
+            - name: logging
+              args:
+                baseMessage: Open API AuthPreFilter
+                preLogger: true
+                postLogger: false
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
