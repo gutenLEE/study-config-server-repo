@@ -35,7 +35,7 @@ spring:
               args:
                 baseMessage: Open API AuthPreFilter
                 preLogger: true
-                postLogger: false
+                postLogger: true
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
