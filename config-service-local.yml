@@ -23,3 +23,15 @@ spring:
             - Path=/auth-service/api/**
           filters:
             - RewritePath=/auth-service/(?<segment>.*), /$\{segment}
+
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth-service/api/company
+          filters:
+            - RewritePath=/auth-service/(?<segment>.*), /$\{segment}
+            - 
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
