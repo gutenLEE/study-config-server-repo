@@ -26,6 +26,7 @@ spring:
           uri: lb://API-SERVICE
           predicates:
             - Path=/api-service/**
+          filters:
             - name: AuthPreFilter
               args:
                 baseMessage: Open API AuthPreFilter
