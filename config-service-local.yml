@@ -30,8 +30,7 @@ spring:
             - Path=/auth-service/api/company
           filters:
             - RewritePath=/auth-service/(?<segment>.*), /$\{segment}
-            - AuthPreFilter
-            - name: Logging
+            - name: AuthPreFilter
               args:
                 baseMessage: Open API AuthPreFilter
                 preLogger: true
