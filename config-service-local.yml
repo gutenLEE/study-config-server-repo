@@ -26,9 +26,7 @@ spring:
         - id: api-service
           uri: lb://API-SERVICE
           predicates:
-            - Path=/api-service/api/company
-          filters:
-            - RewritePath=/api-service/(?<segment>.*), /$\{segment}
+            - Path=/api-service/**
             # - name: AuthPreFilter
             #   args:
             #     baseMessage: Open API AuthPreFilter
