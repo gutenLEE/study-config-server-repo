@@ -6,7 +6,7 @@ spring:
       ribbon:
         enabled: false
     gateway:
-      ip: 192.168.0.13
+      ip: 192.168.0.1
       httpclient:
         connect-timeout: 3000
         response-timeout: 10s
