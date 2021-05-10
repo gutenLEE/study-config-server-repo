@@ -30,11 +30,11 @@ spring:
             - Path=/api-service/api/company
           filters:
             - RewritePath=/api-service/(?<segment>.*), /$\{segment}
-            - name: AuthPreFilter
-              args:
-                baseMessage: Open API AuthPreFilter
-                preLogger: true
-                postLogger: true
+            # - name: AuthPreFilter
+            #   args:
+            #     baseMessage: Open API AuthPreFilter
+            #     preLogger: true
+            #     postLogger: true
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
