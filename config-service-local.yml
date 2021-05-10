@@ -24,12 +24,12 @@ spring:
           filters:
             - RewritePath=/auth-service/(?<segment>.*), /$\{segment}
 
-        - id: auth-service
-          uri: lb://AUTH-SERVICE
+        - id: api-service
+          uri: lb://API-SERVICE
           predicates:
-            - Path=/auth-service/api/company
+            - Path=/api-service/api/company
           filters:
-            - RewritePath=/auth-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/api-service/(?<segment>.*), /$\{segment}
             - name: AuthPreFilter
               args:
                 baseMessage: Open API AuthPreFilter
