@@ -27,7 +27,7 @@ spring:
           predicates:
             - Path=/api-service/**
           filters:
-            - name: AuthPreFilter
+            - name: AuthFilter
               args:
                 baseMessage: Open API AuthPreFilter
                 preLogger: true
