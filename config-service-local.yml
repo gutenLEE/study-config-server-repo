@@ -18,9 +18,9 @@ spring:
             postLogger: true
       routes: # routes 설정
         - id: auth-service
-          uri: lb://AUTH-SERVICE/auth/check
+          uri: lb://AUTH-SERVICE
           predicates:
-            - Path=/auth-service/api/**
+            - Path=/auth-service/**
 
         - id: api-service
           uri: lb://API-SERVICE
