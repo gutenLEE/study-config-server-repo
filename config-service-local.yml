@@ -26,12 +26,12 @@ spring:
           uri: lb://API-SERVICE
           predicates:
             - Path=/api-service/**
-          filters:
-            - name: AuthFilter
-              args:
-                baseMessage: Open API AuthPreFilter
-                preLogger: true
-                postLogger: true
+          # filters:
+          #   - name: AuthFilter
+          #     args:
+          #       baseMessage: Open API AuthPreFilter
+          #       preLogger: true
+          #       postLogger: true
 logging:
   level:
     org.springframework.cloud.gateway: INFO
