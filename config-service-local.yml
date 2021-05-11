@@ -1,6 +1,6 @@
 spring:
   application:
-    name: config-service-local
+    name: antock-gateway
   cloud:
     loadbalancer:
       ribbon:
