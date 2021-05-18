@@ -23,7 +23,7 @@ spring:
             - Path=/auth-service/**
 
         - id: api-service
-          uri: lb://API-SERVICE
+          uri: lb://AUTH-SERVICE
           predicates:
             - Path=/api-service/**
           filters:
