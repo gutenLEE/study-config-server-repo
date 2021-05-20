@@ -1,0 +1,53 @@
+server:
+  port: 8080
+
+#local dev database information
+hubble2:
+  db-host: 221.168.32.8
+  db-name: hubble-unv
+  db-port: 5432
+  db-username: postgres
+  db-password: postgres
+
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: r2dbc:postgesql://${hubble2.db-host}:${hubble2.db-port}/${hubble2.db-name}
+    username: ${hubble2.db-username}
+    password: ${hubble2.db-password}
+    driver-class-name: io.r2dbc
+
+
+eureka:
+  instance:
+    hostname: localhost
+    metadata-map:
+      user: admin
+      password: qwer1234
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.metadata-map.user}:${eureka.instance.metadata-map.password}@localhost:8761/eureka/
+
+
+logging:
+  level:
+    reactor.netty.http.client: INFO
+    org.springframework.r2dbc: INFO
+    io.r2dbc: INFO
+    io.projectreactor.reactor-tools: INFO
+
+
+hubble-auth:
+  encryption:
+    aes:
+      key: hubble2020antock
+      vi: hubble2020antock
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
